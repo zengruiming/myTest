@@ -1,0 +1,9 @@
+logging:
+  #config: logback
+  level:
+    com.ruiming.logging: debug
+  #配置日志位置
+  file: C:\Users\Administrator\Desktop\demo\6.log
+  #配置日志输出格式
+  pattern:
+    console: '%d{HH:mm:ss.SSS} %-5level %logger{36} [%line] - %msg%n'
