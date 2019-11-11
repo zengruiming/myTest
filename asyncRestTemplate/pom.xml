@@ -64,10 +64,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <!--如果没有fork配置,devtools不起作用，即项目修改后不会重新启动 -->
-                    <fork>true</fork>
-                </configuration>
             </plugin>
         </plugins>
     </build>

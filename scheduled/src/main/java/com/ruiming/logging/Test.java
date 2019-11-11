@@ -13,6 +13,6 @@ public class Test {
     @Scheduled(cron = "*/6 * * * * ?")
     private void process() {
         log.info("ceshia ");
-        System.out.println("定时任务1：" + (count++));
+        System.out.println("定时任务：" + (count++));
     }
 }

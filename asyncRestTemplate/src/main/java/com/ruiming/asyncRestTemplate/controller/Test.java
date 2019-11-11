@@ -15,8 +15,8 @@ public class Test {
         Student var1 = new Student("zeng", 18, true);
         Student var2 = new Student("zeng", 18, true);
         Student var3 = new Student("zeng", 18, true);
-        log.info("test");
-        log.info("haha");
+        log.info("test11");
+        log.info("haha1");
 
         return var1;
     }
