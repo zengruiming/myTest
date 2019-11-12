@@ -208,6 +208,6 @@ public class ElasticsearchApplicationTest {
             InternalAvg avg = (InternalAvg) bucket.getAggregations().asMap().get("priceAvg");
             System.out.println("平均售价：" + avg.getValue());
         }
-
     }
+    
 }
