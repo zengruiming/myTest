@@ -8,10 +8,10 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
-@Document(indexName = "item",type = "docs", shards = 1, replicas = 0)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Document(indexName = "item",type = "docs", shards = 1, replicas = 0)
 public class Item {
     @Id
     private Long id;
@@ -30,4 +30,5 @@ public class Item {
 
     @Field(index = false, type = FieldType.Keyword)
     private String images; // 图片地址
+
 }

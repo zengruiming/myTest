@@ -1,6 +1,5 @@
 package com.ruiming.elasticsearch;
 
-
 import com.ruiming.elasticsearch.dao.ItemRepository;
 import com.ruiming.elasticsearch.pojo.Item;
 import org.elasticsearch.index.query.MatchQueryBuilder;
@@ -54,7 +53,7 @@ public class ElasticsearchApplicationTest {
     //新增
     @Test
     public void index() {
-        Item item = new Item(1L, "小米手机7", " 手机","小米", 3499.00, "http://localhost/13123.jpg");
+        Item item = new Item(1L, "小米手机7", "手机","小米", 3499.00, "http://localhost/13123.jpg");
         itemRepository.save(item);
     }
 
@@ -62,10 +61,23 @@ public class ElasticsearchApplicationTest {
     @Test
     public void indexList() {
         List<Item> list = new ArrayList<>();
-        list.add(new Item(2L, "坚果手机R1", " 手机", "锤子", 3699.00, "http://localhost/123.jpg"));
-        list.add(new Item(3L, "华为META10", " 手机", "华为", 4499.00, "http://localhost/3.jpg"));
+        list.add(new Item(2L, "坚果手机R1", "手机", "锤子", 3699.00, "http://localhost/123.jpg"));
+        list.add(new Item(3L, "华为META10", "手机", "华为", 4499.00, "http://localhost/3.jpg"));
         // 接收对象集合，实现批量新增
         itemRepository.saveAll(list);
+    }
+
+    @Test
+    public void indexListAll() {
+        List<Item> list = new ArrayList<>();
+        list.add(new Item(1L, "小米手机7", "手机", "小米", 3299.00, "http://localhost/13123.jpg"));
+        list.add(new Item(2L, "坚果手机R1", "手机", "锤子", 3699.00, "http://localhost/13123.jpg"));
+        list.add(new Item(3L, "华为META10", "手机", "华为", 4499.00, "http://localhost/13123.jpg"));
+        list.add(new Item(4L, "小米Mix2S", "手机", "小米", 4299.00, "http://localhost/13123.jpg"));
+        list.add(new Item(5L, "荣耀V10", "手机", "华为", 2799.00, "http://localhost/13123.jpg"));
+        // 接收对象集合，实现批量新增
+        itemRepository.saveAll(list);
+//        itemRepository.deleteAll();
     }
 
     //通过ID查询
@@ -116,7 +128,6 @@ public class ElasticsearchApplicationTest {
         NativeSearchQueryBuilder queryBuilder = new NativeSearchQueryBuilder();
         // 添加基本的分词查询
         queryBuilder.withQuery(QueryBuilders.termQuery("category", "手机"));
-
         // 初始化分页参数
         int page = 0;
         int size = 3;

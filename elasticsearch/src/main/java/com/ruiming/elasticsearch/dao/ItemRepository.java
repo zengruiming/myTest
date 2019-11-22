@@ -13,4 +13,5 @@ public interface ItemRepository extends ElasticsearchRepository<Item,Long> {
      * @return
      */
     List<Item> findByPriceBetween(double price1, double price2);
+
 }
