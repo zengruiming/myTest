@@ -2,6 +2,7 @@ package com.csii.base.service;
 
 import com.csii.base.dao.ElkRepository;
 import com.csii.base.pojo.MyLogger;
+import org.aspectj.weaver.ast.And;
 import org.elasticsearch.index.query.MatchQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
@@ -88,6 +89,7 @@ public class ElkService {
         list.add(new MyLogger(new Date(), "INFO", "org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker", "postProcessAfterInitialization", 30, "Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8359a75b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)"));
         // 接收对象集合，实现批量新增
         elkRepository.saveAll(list);
+        System.out.println("fjjf");
     }
 
     /**

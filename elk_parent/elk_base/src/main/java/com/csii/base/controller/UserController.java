@@ -20,12 +20,14 @@ import com.csii.base.service.UserService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
+import springfox.documentation.annotations.ApiIgnore;
 
 /**
  * 控制器层
  *
  * @author Administrator
  */
+@ApiIgnore
 @RestController
 @CrossOrigin
 @RequestMapping("/user")

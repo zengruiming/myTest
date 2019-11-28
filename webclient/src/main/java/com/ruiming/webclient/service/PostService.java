@@ -3,14 +3,22 @@ package com.ruiming.webclient.service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
+import java.util.Random;
+
+@Service
 public class PostService {
-    private static Logger log= LoggerFactory.getLogger(com.ruiming.webclient.controller.Test.class);
+    private static Logger log= LoggerFactory.getLogger(com.ruiming.webclient.controller.PostController.class);
+    //每六秒钟执行一次
+    @Scheduled(cron = "*/30 * * * * ?")
     public void testWithCookie(){
         MultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
         formData.add("ic","UKXR64");
@@ -32,6 +40,13 @@ public class PostService {
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .body(BodyInserters.fromFormData(formData))
                 .retrieve().bodyToMono(String.class);
+
         log.info("result:{}",resp.block());
+        int num = testRandom(30,60);
+    }
+
+    public int testRandom(int min,int max) {
+        Random random = new Random();
+        return random.nextInt(max) % (max - min + 1) + min;
     }
 }

@@ -1,5 +1,6 @@
 package entity;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,9 +10,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Result {
 
+    @ApiModelProperty("成功/失败标识")
     private boolean flag;
+
+    @ApiModelProperty("状态码")
     private Integer code;
+
+    @ApiModelProperty("消息")
     private String message;
+
+    @ApiModelProperty("响应数据")
     private Object data;
 
     /**
